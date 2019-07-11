@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-2 12:08:03 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="zhang.spring.bookstore.entities.Manager" table="MANAGER">
+        <id name="mgrId" type="java.lang.Integer">
+            <column name="MGR_ID" />
+            <generator class="native" />
+        </id>
+        <property name="mgrName" type="java.lang.String">
+            <column name="MGR_NAME" />
+        </property>
+        <property name="mgrPassword" type="java.lang.String">
+            <column name="MGR_PASSWORD" />
+        </property>
+        <set name="Remarks" table="REMARK" inverse="false" lazy="true">
+            <key>
+                <column name="MGR_ID" />
+            </key>
+            <one-to-many class="zhang.spring.bookstore.entities.Remark" />
+        </set>
+    </class>
+</hibernate-mapping>

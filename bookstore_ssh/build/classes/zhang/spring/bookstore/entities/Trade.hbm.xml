@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-29 21:12:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="zhang.spring.bookstore.entities.Trade" table="TRADE">
+        <id name="tradeId" type="java.lang.Integer">
+            <column name="TRADE_ID" />
+            <generator class="native" />
+        </id>
+        <property name="tradeTime" type="timestamp">
+            <column name="TRADE_TIME" />
+        </property>
+        <many-to-one name="user" class="zhang.spring.bookstore.entities.User" column="USER_ID"></many-to-one>
+    </class>
+</hibernate-mapping>

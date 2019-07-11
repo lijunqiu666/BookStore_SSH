@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-29 21:12:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="zhang.spring.bookstore.entities.TradeItem" table="TRADEITEM">
+        <id name="tradeItemId" type="java.lang.Integer">
+            <column name="TRADEITEM_ID" />
+            <generator class="native" />
+        </id>
+        <property name="quantity" type="int">
+            <column name="QUANTITY" />
+        </property>
+        <property name="bookId" type="java.lang.Integer">
+            <column name="BOOK_ID" />
+        </property>
+        <!-- 映射多对一的关联关系 -->
+        <many-to-one name="trade"  column="TRADE_ID"></many-to-one>
+    </class>
+</hibernate-mapping>

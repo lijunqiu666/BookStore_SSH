@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-2 12:08:03 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="zhang.spring.bookstore.entities.Remark" table="REMARK" lazy="false">
+        <id name="remarkId" type="java.lang.Integer">
+            <column name="REMARKID" />
+            <generator class="native" />
+        </id>
+        <property name="content" type="java.lang.String">
+            <column name="CONTENT" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" />
+        </property>
+        <many-to-one name="manager" lazy="false" class="zhang.spring.bookstore.entities.Manager" fetch="join">
+            <column name="MGR_ID" />
+        </many-to-one>
+        
+    </class>
+</hibernate-mapping>

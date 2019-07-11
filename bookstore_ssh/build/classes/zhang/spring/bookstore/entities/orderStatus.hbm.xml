@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-6-10 13:33:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="zhang.spring.bookstore.entities.orderStatus" table="ORDERSTATUS">
+        <id name="statuId" type="java.lang.Integer">
+            <column name="STATU_ID" />
+            <generator class="native" />
+        </id>
+        <property name="statuName" type="java.lang.String">
+            <column name="STATU_NAME" />
+        </property>
+    </class>
+</hibernate-mapping>

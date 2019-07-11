@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-30 17:20:10 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="zhang.spring.bookstore.entities.Account" table="ACCOUNT">
+        <id name="id" type="integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="balance" type="float">
+            <column name="BALANCE" />
+        </property>
+        <property name="accountId" type="string">
+            <column name="ACCOUNT_ID" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASS_WORD" />
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" />
+        </property>
+       <one-to-one name="user" class="zhang.spring.bookstore.entities.User" ></one-to-one>
+    </class>
+</hibernate-mapping>

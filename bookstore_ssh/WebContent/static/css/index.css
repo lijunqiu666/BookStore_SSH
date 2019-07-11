@@ -1,0 +1,56 @@
+@CHARSET "UTF-8";
+
+.navbar-unread{width:18px;height:18px;}
+.row {margin-top: 10px;;}
+.center {text-align: center;}
+.pagination {background: #cccccc;}
+.jumbotron{text-align: center;margin-top:55px;color:#303030;background-color:#eee;}
+.shoppingcart{position: relative;}
+.navbar-unread {
+    background-color: #e74c3c;
+    border-radius: 30px;
+    color: white;
+    display: none;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    min-width: 8px;
+    padding: 0 5px;
+    position: absolute;
+    right: -7px;
+    text-align: center;
+    text-shadow: none;
+    top: 8px;
+    z-index: 10;
+}
+#scrollUp {
+    background-color: #777;
+    color: #eee;
+    font-size: 40px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    bottom: 20px;
+    right: 20px;
+    overflow: hidden;
+    width: 46px;
+    height: 46px;
+    border: none;
+    opacity: .8;
+}
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.fa-angle-up:before {
+    content: "\f106";
+}
+:after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}

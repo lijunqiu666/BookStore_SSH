@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	<!-- 配置扫描的包 -->
+	<context:component-scan base-package="zhang.spring.bookstore.handers" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+
+	<!-- 配置视图解析器 -->
+	<bean id="internalResourceViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	<mvc:annotation-driven></mvc:annotation-driven>
+	<mvc:default-servlet-handler />
+	<!-- 配置国际化资源文件 -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="i18n"></property>
+	</bean>
+
+	<!-- 配置 SessionLocaleResolver,
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en_US"></property>
+		
+	</bean>
+	 -->
+	<mvc:interceptors>
+		<!-- 配置国际化相关的拦截器 LocaleChangeInterceptor 
+		<mvc:interceptor>
+			<mvc:mapping path="/*" />
+			<bean id="localeChangeInterceptor"
+				class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			</bean>
+		</mvc:interceptor>
+		-->
+		<!-- 自定义拦截器 -->
+		<mvc:interceptor>
+			<!-- 配置拦截器(不)作用的路径 -->
+			<mvc:mapping path="/addtocart" />
+			<mvc:mapping path="/getcartinfo" />
+			<bean id="userInterceptor" class="zhang.spring.bookstore.interceptors.UserInterceptor">
+			</bean>
+		</mvc:interceptor>
+
+	</mvc:interceptors>
+	<!-- 配置文件上传的实现类,处理器 -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="UTF-8"></property>
+		<property name="maxUploadSize" value="20933950"></property>
+	</bean>
+
+
+</beans>

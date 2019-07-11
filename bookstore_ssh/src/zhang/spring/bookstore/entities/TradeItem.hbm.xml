@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- Generated 2019-6-10 13:29:58 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+
+	<class name="zhang.spring.bookstore.entities.TradeItem" table="TRADEITEM">
+
+		<id name="tradeItemId" type="java.lang.Integer">
+
+			<column name="TRADEITEMID" />
+			<generator class="native" />
+		</id>
+
+		<property name="quantity" type="int">
+			<column name="QUANTITY" />
+		</property>
+
+		<property name="bookId" type="java.lang.Integer">
+			<column name="BOOK_ID" />
+		</property>
+		<many-to-one name="orderstatus"
+			class="zhang.spring.bookstore.entities.orderStatus" lazy="false">
+			<column name="STATU_ID" />
+		</many-to-one>
+		<many-to-one name="trade" class="zhang.spring.bookstore.entities.Trade" fetch="join">
+			<column name="TRADE_ID" />
+		</many-to-one>
+
+	</class>
+
+</hibernate-mapping>

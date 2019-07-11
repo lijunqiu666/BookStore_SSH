@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-29 21:12:45 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="zhang.spring.bookstore.entities.Book" table="BOOKS">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="native" />
+        </id>
+        <property name="author" type="java.lang.String">
+            <column name="AUTHOR" />
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="price" type="float">
+            <column name="PRICE" />
+        </property>
+        <property name="imgpath" type="java.lang.String">
+            <column name="IMG_PATH" />
+        </property>
+        <property name="publishingDate" type="date">
+            <column name="PUBLISHING_DATE" />
+        </property>
+        <property name="salesAmount" type="int">
+            <column name="SALES_AMOUNT" />
+        </property>
+        <property name="storeNumber" type="int">
+            <column name="STORE_NUMBER" />
+        </property>
+        <property name="remark" type="java.lang.String">
+            <column name="REMARK" />
+        </property>
+    </class>
+</hibernate-mapping>
